@@ -11,9 +11,7 @@ var countFail = 0;
 
 function initialization(word){
 
-
-
-
+    document.getElementById('word').innerHTML = '';
     document.getElementById('wordHidden').innerHTML = '';
     document.getElementById('keyPressed').innerHTML = '';
 
@@ -21,8 +19,6 @@ function initialization(word){
 
     wordFinal = [];
     onPress = [];
-    //
-    // countTemp = false;
 
     for (var i = 0; i < word.length; i++) {
         wordFinal.push('_');
@@ -38,9 +34,9 @@ function initialization(word){
 };
 
 btnNewGame.addEventListener('click', function(event){
+    
     countFail = 0;
 
-    console.log(countFail);
     //Obtengo una palabra al azar del array
     var word = words[getRandomArbitrary(0, words.length)]
     var wordHidden = '';
