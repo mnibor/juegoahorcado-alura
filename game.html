@@ -10,6 +10,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
         <link rel="icon" href="images/logo-oracle.jpg">
         <title>Challenge #2 - Alura</title>
+
+        <style media="screen">
+        #canvas
+            {
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
     </head>
 
     <body>
@@ -18,25 +26,29 @@
             <div class="row mt-4">
                 <div class="col-6">
                     <div class="card border-secondary">
-                        <h5 class="card-header">NUEVO JUEGO</h5>
+                        <h5 class="card-header">Resultado</h5>
                         <div class="card-body">
                             <div class="mb-3">
-                                <label class="form-label">Descubra la palabra oculta en la cantidad mínima de intentos</label>
 
-                                <a href="game.html" class="btn btn-primary mt-3 btnNewGame"><i class="bi bi-controller"></i>NUEVO JUEGO</a>
-                                <hr>
-                                <form class="row g-3">
-                                    <div class="col-auto">
-                                        <input id="addWord" type="text" class="form-control" placeholder="Agregar palabra">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button type="submit" class="btn btn-secondary mb-3 btnAddWord" onclick="getValueInput()">Agregar</button>
-                                    </div>
-                                </form>
+                                <canvas id="canvas" width="300" height="300" style="border:1px solid #000000;"></canvas>
 
+
+                                <h1 id="wordHidden"></h1>
+
+                                <h3 id="keyPressed" class="text-success"></h3>
+
+                                <h4 id="word" class="text-danger"></h4>
+
+                                <label id="lblError" class="text-danger"></label>
+
+                                <h6 id="try" style="hidden">Intentos disponibles <span id="span-try" class="badge bg-danger"></span></h6>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-6">
+                    <a  class="btn btn-primary btn-lg" href="index.html">Volver al Inicio</a>
                 </div>
             </div>
         </div>
@@ -48,6 +60,7 @@
         </footer>
 
         <script src="js/app.js" charset="utf-8"></script>
+        <script src="js/game.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
