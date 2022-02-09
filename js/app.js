@@ -1,28 +1,31 @@
 // Array de palabras
 var words = ['IGUANA','AGOSTO','OBISPO','ANILLO','ASALTO','AZTECA','AZUCAR','CAVIAR','CHISME','CUARZO','CUPULA','POSTER','INGLES','ASESOR','SOBRIO','ATAQUE','SULTAN','SIRENA','APOYAR','LAUREL','CRISIS','MARFIL','DIESEL','PINCEL','SABANA','VIAJAR','SASTRE','ATLETA','OCULTO','VECTOR','SALIVA'];
 
-var btnNewGame = document.querySelector(".btnNewGame");
+var btnNewGame = document.querySelector('.btnNewGame');
 
 //Array de letras presionadas
-var onPress = new Array();
-var wordFinal = new Array();
+var onPress = [];
+var wordFinal = [];
 var countTemp = false;
 var countFail = 0;
 
 function initialization(word){
+
+
+
 
     document.getElementById('wordHidden').innerHTML = '';
     document.getElementById('keyPressed').innerHTML = '';
 
     document.getElementById('span-try').innerHTML = 9;
 
-    wordFinal = new Array();
-    onPress = new Array();
-    countFail = 0;
-    countTemp = false;
+    wordFinal = [];
+    onPress = [];
+    //
+    // countTemp = false;
 
     for (var i = 0; i < word.length; i++) {
-        wordFinal.push("_");
+        wordFinal.push('_');
     };
 
     document.getElementById('wordHidden').innerHTML = wordFinal.join('  ');
@@ -34,15 +37,17 @@ function initialization(word){
 
 };
 
-btnNewGame.addEventListener("click", function(event){
+btnNewGame.addEventListener('click', function(event){
+    countFail = 0;
 
+    console.log(countFail);
     //Obtengo una palabra al azar del array
     var word = words[getRandomArbitrary(0, words.length)]
-    var wordHidden = "";
+    var wordHidden = '';
 
     initialization(word);
 
-    window.addEventListener("keydown", function (event) {
+    window.addEventListener('keydown', function (event) {
 
         //Valido si son letras
         validate(event);
@@ -60,7 +65,7 @@ btnNewGame.addEventListener("click", function(event){
                     countTemp = true;
 
                     wordFinal[i] = charOne.toUpperCase();
-                    //console.log("La letra " + charOne.toUpperCase() + " se encuentra en la posición " + i);
+                    //console.log('La letra ' + charOne.toUpperCase() + ' se encuentra en la posición ' + i);
 
                     ended(wordFinal);
 
@@ -102,14 +107,15 @@ function counter(){
 
             //Dibujo de la base cuadrada de la horca
             //Relleno
-            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
             ctx.fillRect(10, 230, 60, 60);
 
             //Contorno
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.rect(10, 230, 60, 60);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -119,10 +125,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(40, 230);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(40, 40);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -132,7 +139,7 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(40, 40);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(180, 40);
             ctx.stroke();
@@ -140,10 +147,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(40, 80);
             ctx.lineWidth = 3;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(80, 40);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -153,7 +161,7 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 40);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(180, 70);
             ctx.stroke();
@@ -161,6 +169,7 @@ function counter(){
             ctx.beginPath();
             ctx.arc(180, 90, 20, 0, Math.PI * 2); // Outer circle
             ctx.stroke();
+            return false;
 
             break;
 
@@ -170,10 +179,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 110);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(180, 190);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -183,10 +193,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 130);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(220, 160);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -196,11 +207,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 130);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(140, 160);
             ctx.stroke();
-
+            return false;
 
             break;
 
@@ -210,10 +221,11 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 190);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(220, 220);
             ctx.stroke();
+            return false;
 
             break;
 
@@ -223,7 +235,7 @@ function counter(){
             ctx.beginPath();
             ctx.moveTo(180, 190);
             ctx.lineWidth = 5;
-            ctx.strokeStyle = "rgba(90,90,90,1)";
+            ctx.strokeStyle = 'rgba(90,90,90,1)';
             ctx.lineCap = 'round';
             ctx.lineTo(140, 220);
             ctx.stroke();
@@ -267,8 +279,8 @@ function validate(e) {
     var keyCode = e.keyCode || e.which;
     var char = e.key;
 
-    var lblError = document.getElementById("lblError");
-    lblError.innerHTML = "";
+    var lblError = document.getElementById('lblError');
+    lblError.innerHTML = '';
 
     //Solamente caracteres del alfabeto
     var regex = /^[A-Za-z]+$/;
@@ -277,7 +289,7 @@ function validate(e) {
     var isValid = regex.test(String.fromCharCode(keyCode));
     if (!isValid) {
 
-        lblError.innerHTML = "Solamente letras del alfabeto";
+        lblError.innerHTML = 'Solamente letras del alfabeto';
 
     } else {
 
